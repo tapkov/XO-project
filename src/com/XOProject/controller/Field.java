@@ -7,14 +7,16 @@ import java.awt.*;
  */
 public class Field {
 
-    final int sizeFigure;
+    public static final int SIZE_FIELD = 3;
 
-    public Field(int size) {
-        this.sizeFigure = size;
+    Figure[][] field = new Figure[SIZE_FIELD][SIZE_FIELD];
+
+    public void setFigure(Point point, Figure figure){
+        field[point.x][point.y] = figure;
     }
 
-    public void setFigure(Point point, Figure figure){}
-
-    public Figure getFigure(Point point){}
+    public Figure getFigure(Point point){
+        return field[point.x][point.y];
+    }
 
 }
