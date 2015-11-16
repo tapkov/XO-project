@@ -1,7 +1,7 @@
-package com.XOProject.controller;
+package com.XOProject.model;
 
-import com.XOProject.controller.exception.AllreadyOcupaitedException;
-import com.XOProject.controller.exception.InvalidPointException;
+import com.XOProject.model.exception.AllreadyOcupaitedException;
+import com.XOProject.model.exception.InvalidPointException;
 
 import java.awt.*;
 
@@ -26,9 +26,7 @@ public class Field {
         if(!checkPoint(point)){
             throw new InvalidPointException();
         }
-        if(field[point.x][point.y] != null){
-            throw new AllreadyOcupaitedException();
-        }
+
         field[point.x][point.y] = figure;
     }
 
