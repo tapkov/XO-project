@@ -16,6 +16,11 @@ public class Field {
 
     Figure[][] field = new Figure[SIZE_FIELD][SIZE_FIELD];
 
+    public int getSizeField(){
+        return SIZE_FIELD;
+    }
+
+
     public void setFigure(Point point, Figure figure) throws InvalidPointException,
                                                              AllreadyOcupaitedException{
         if(!checkPoint(point)){
