@@ -4,15 +4,32 @@ package com.XOProject.controller;
  * Created by vlad on 11.11.15.
  */
 public class Game {
+    private Player[] players;
 
-    private final static String NAME_THE_GAME = "TicTakToe";
+    private Field field;
 
-    Player getPlayer(){
-        return;
+    private String name;
+
+    public Game (final Player[] player,
+                 final Field    field,
+                 final String   name
+                                        ) {
+        this.players = player;
+        this.field   = field;
+        this.name    = name;
+
     }
 
-    String getNameTheGame(){
-        return NAME_THE_GAME;
+    Player[]   getPlayer() {
+        return players ;
+    }
+
+    Field   getField() {
+        return field;
+    }
+
+    String getName(){
+        return name;
     }
 
 }
