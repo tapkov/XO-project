@@ -1,5 +1,8 @@
 package com.XOProject.controller;
 
+import com.XOProject.controller.exception.AllreadyOcupaitedException;
+import com.XOProject.controller.exception.InvalidPointException;
+
 import java.awt.*;
 
 /**
@@ -13,11 +16,21 @@ public class Field {
 
     Figure[][] field = new Figure[SIZE_FIELD][SIZE_FIELD];
 
-    public void setFigure(Point point, Figure figure){
+    public void setFigure(Point point, Figure figure) throws InvalidPointException,
+                                                             AllreadyOcupaitedException{
+        if(!checkPoint(point)){
+            throw new InvalidPointException();
+        }
+        if(field[point.x][point.y] != null){
+            throw new AllreadyOcupaitedException();
+        }
         field[point.x][point.y] = figure;
     }
 
-    public Figure getFigure(Point point){
+    public Figure getFigure(Point point) throws InvalidPointException{
+        if(!checkPoint(point)){
+            throw  new InvalidPointException();
+        }
         return field[point.x][point.y];
     }
 
@@ -26,7 +39,7 @@ public class Field {
     }
 
     private boolean checkCoordinate (final int coordinate){
-        return coordinate < MAX_COORDINATE && coordinate > MIN_COORDINATE;
+        return coordinate < MAX_COORDINATE && coordinate >= MIN_COORDINATE;
     }
 
 
