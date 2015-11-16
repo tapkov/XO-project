@@ -1,5 +1,8 @@
 package com.XOProject.controller;
 
+import com.XOProject.model.Figure;
+import com.XOProject.model.Player;
+
 import static org.junit.Assert.*;
 
 public class PlayerTest {

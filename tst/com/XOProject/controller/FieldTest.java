@@ -1,9 +1,10 @@
 package com.XOProject.controller;
-import com.XOProject.controller.exception.InvalidPointException;
+import com.XOProject.model.*;
+import com.XOProject.model.exception.AllreadyOcupaitedException;
+import com.XOProject.model.exception.InvalidPointException;
 import org.junit.Test;
 
 import java.awt.*;
-import java.lang.reflect.*;
 
 
 import static org.junit.Assert.*;
@@ -15,7 +16,7 @@ public class FieldTest {
         Figure inputValue = Figure.X;
         Point InputPoint = new Point(0,0);
 
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
 
         field.setFigure(InputPoint, inputValue);
         Figure expectedValue = field.getFigure(InputPoint);
@@ -26,7 +27,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenFigureIsNotSet() throws Exception {
         Point InputPoint = new Point(0,0);
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
 
         Figure actualFigure = field.getFigure(InputPoint);
 
@@ -36,7 +37,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenXIsLessThanZero() throws Exception {
         Point InputPoint = new Point(-1,0);
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
         try {
             field.getFigure(InputPoint);
             fail();
@@ -45,7 +46,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenYIsLessThanZero() throws Exception {
         Point InputPoint = new Point(0,-1);
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
         try {
             field.getFigure(InputPoint);
             fail();
@@ -53,7 +54,7 @@ public class FieldTest {
     }
     @Test
     public void testGetFigureWhenXIsMoreThanZero() throws Exception {
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
         Point InputPoint = new Point(field.getSizeField() + 1,0);
 
         try {
@@ -63,7 +64,7 @@ public class FieldTest {
     }
     @Test
     public void testGetFigureWhenYIsMoreThanZero() throws Exception {
-        Field field = new Field();
+        com.XOProject.model.Field field = new com.XOProject.model.Field();
         Point InputPoint = new Point(0, field.getSizeField() + 1);
 
         try {

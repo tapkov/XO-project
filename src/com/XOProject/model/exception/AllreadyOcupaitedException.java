@@ -1,4 +1,4 @@
-package com.XOProject.controller.exception;
+package com.XOProject.model.exception;
 
 /**
  * Created by vlad on 12.11.15.
