@@ -10,14 +10,18 @@ import java.awt.*;
  */
 public class Field {
 
-    public static final int SIZE_FIELD = 3;
-    public static final int MAX_COORDINATE = SIZE_FIELD;
+    public final int size_field;
     public static final int MIN_COORDINATE = 0;
 
-    Figure[][] field = new Figure[SIZE_FIELD][SIZE_FIELD];
+    final Figure[][] field ;
 
-    public int getSizeField(){
-        return SIZE_FIELD;
+    public Field(int size_field) {
+        this.size_field = size_field;
+        field = new Figure[size_field][size_field];
+    }
+
+    public int getSize_field(){
+        return size_field;
     }
 
 
@@ -36,13 +40,13 @@ public class Field {
         }
         return field[point.x][point.y];
     }
-
+    //check point that was within the limits of the field
     private boolean checkPoint (final Point point){
-        return checkCoordinate(point.x) && checkCoordinate(point.y);
+        return checkCoordinate(point.x, field.length) && checkCoordinate(point.y, field[point.x].length);
     }
-
-    private boolean checkCoordinate (final int coordinate){
-        return coordinate < MAX_COORDINATE && coordinate >= MIN_COORDINATE;
+    //check coordinate
+    private boolean checkCoordinate (final int coordinate, final int maxCoordinate){
+        return coordinate >= MIN_COORDINATE && coordinate < maxCoordinate ;
     }
 
 
