@@ -20,15 +20,15 @@ public class Game {
 
     }
 
-    Player[]   getPlayer() {
+    public Player[]   getPlayer() {
         return players ;
     }
 
-    Field   getField() {
+    public Field   getField() {
         return field;
     }
 
-    String getName(){
+    public String getName(){
         return name;
     }
 
