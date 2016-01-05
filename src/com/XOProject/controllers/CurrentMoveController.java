@@ -16,8 +16,10 @@ public class CurrentMoveController {
 
     // In rules to game XO, X have first move.
 
-    Figure currentMove (final Field field) throws InvalidPointException {
+    public Figure currentMove (final Field field) throws InvalidPointException {
         //We can use not 2For, and class with for
+        counterO=0;
+        counterX=0;
         for (int j = 0; j < field.getSize_field(); j++) {
             for (int i = 0; i < field.getSize_field(); i++) {
                 //We can use as IfElse , as Switch
@@ -28,15 +30,12 @@ public class CurrentMoveController {
             }
         }
 
-        //There we can simple count amount Figure, and if amount
-        // will be even(figure%2 = 0) number, next move on X.
-
         if (counterX+counterO == field.getSize_field()*field.getSize_field()){
             return null;
         } else {
-            if (counterO < counterX) {
-                return Figure.O;
-            } else {return Figure.X;}
+            if ((counterO+counterX)%2 == 0) {
+                return Figure.X;
+            } else {return Figure.O;}
         }
     }
 }
